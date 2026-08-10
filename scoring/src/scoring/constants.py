@@ -167,6 +167,10 @@ class GaussianParams:
   smoothingValue: float = 0.35
   adaptiveWeightBase: Optional[int] = 9
   priorFactor: bool = True
+  # Coefficient on noteFactor*center in the opposite-side prior:
+  # prior = priorSlope * noteFactor * center + smoothingValue (then capped/floored).
+  # Default 0.5 matches the historical (noteFactor * center) / 2 formula.
+  priorSlope: float = 0.5
   negWeight: float = 1.75
   minPrior: Optional[float] = 0.2
   weightLim: float = 1e-9
