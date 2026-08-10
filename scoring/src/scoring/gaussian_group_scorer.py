@@ -189,7 +189,7 @@ class GaussianCoreGroupScorer(GaussianGroupScorer):
     threads: int = 4,
     saveIntermediateState: bool = False,
     groupThreshold: float = 0.75,
-    crhThreshold: float = 0.6,
+    crhThreshold: float = 0.56,
     factorThreshold: float = 0.5,
     crhSuperThreshold: Optional[float] = None,
   ) -> None:
@@ -205,6 +205,9 @@ class GaussianCoreGroupScorer(GaussianGroupScorer):
       # FR large-factor notes even if they never hit CRH in this scorer (not CRH-only).
       largeFactorRequiresCrh=False,
       crhSuperThreshold=crhSuperThreshold,
+      # Stronger opposite-side prior (priorSlope=1.2 vs default 0.5) and lower clip/minPrior
+      # floors so polarized notes can score lower on the other side of the spectrum.
+      crhParams=c.GaussianParams(clipLower=0.03, minPrior=0.1, priorSlope=1.2),
     )
 
   def get_prescoring_name(self):

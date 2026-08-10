@@ -531,7 +531,7 @@ class GaussianScorer(Scorer):
 
     # Smoothing values
     if params.priorFactor:
-      priorValues = (noteFactors[:, None] * centers) / 2 + params.smoothingValue
+      priorValues = params.priorSlope * noteFactors[:, None] * centers + params.smoothingValue
       smoothingValues = np.minimum(priorValues, params.smoothingValue).astype(np.float32)
       if params.minPrior is not None:
         smoothingValues = np.maximum(smoothingValues, params.minPrior).astype(np.float32)
