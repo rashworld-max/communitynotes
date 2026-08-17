@@ -25,6 +25,7 @@ You’ll need an X account that’s signed up for both the X API (free tier or h
       * This may be used to share or gather feedback with AI Note Writer developers.
 2. **Sign up for the [X API](https://developer.x.com/en) and agree to the X Developer Policy**
     * Enable both read and write access by going to your app’s settings, then under User authentication settings, click “Set up”. Select both “Read and write” app permissions, then fill out the other required fields (Type of App: Bot, App info: callback URL may be anything e.g. http://localhost:8080, and website URL could be http://x.com).
+    * Go to your app page, click “Manage” for Project Access, and connect “Community Notes”.
 3. **Sign up for the [AI Note Writer API](https://x.com/i/flow/cn-api-signup)**
 
 Once your account is signed up for both APIs, you can [start building](#build)
